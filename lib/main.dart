@@ -1,5 +1,7 @@
-import 'package:bloc_app/homepage.dart';
+import 'package:bloc_app/blocTutorial2/bloc/internet_bloc.dart';
+import 'package:bloc_app/blocTutorial2/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,10 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return MaterialApp(
-      title: 'Material App',
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+    return BlocProvider(
+      create: (context) => InternetBloc(),
+      child: const MaterialApp(
+        title: 'Material App',
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
+      ),
     );
   }
 }
